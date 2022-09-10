@@ -1,6 +1,6 @@
 {{ define "body-class" }}template-archives{{ end }}
 {{ define "main" }}
-    <header>
+    <!-- <header>
         {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "categories" -}}
         {{- $terms := $taxonomy.Pages -}}
         {{ if $terms }}
@@ -13,7 +13,7 @@
             </div>
         </div>
         {{ end }}
-    </header>
+    </header> -->
 
     {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
     {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
@@ -32,4 +32,7 @@
     {{ end }}
 
     {{ partialCached "footer/footer" . }}
+{{ end }}
+{{ define "right-sidebar" }}
+    {{ partial "sidebar/right.html" (dict "Context" . "Scope" "homepage") }}
 {{ end }}
