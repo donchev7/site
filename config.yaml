@@ -48,8 +48,7 @@ params:
   sidebar:
     # emoji: 🍥
     subtitle: |
-      Welcome to my Website! 
-      I am a guy that loves IT related topics. I am mostly interested in cloud architectures, data architectures and open source software. I'm currently living in the Frankfurt area, Germany. In my spare time I like spending time with my family either at home or abroad, you can find me on Facebook,LinkedIn and Github. If e-Mail is your preferred method of communication, please e-mail me at contact ( at ) donchev.is Thanks for visiting my site!
+      Programming is very simple but programming simple software is the hardest.
     avatar:
       enabled: true
       local: true
@@ -187,6 +186,12 @@ menu:
       url: https://github.com/donchev7
       params:
         icon: brand-github
+
+    - identifier: linkedin
+      name: LinkedIn
+      url: https://www.linkedin.com/in/bdonchev/
+      params:
+        icon: brand-linkedin
 
     - identifier: twitter
       name: Twitter
