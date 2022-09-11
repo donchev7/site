@@ -9,9 +9,9 @@ tags:
 
 Docker is a disrupting technology for software delivery, infrastructure, and development. Just look at the adoption numbers (courtesy to datadog)
 
-![docker_adoption](docker-2017-1_v3.png)
+![docker_adoption](post/2017/docker-2017-1_v3.png)
 
-====
+<!--more-->
 
 But let us step back for a second and answer the common question, What is Docker?
 

@@ -31,7 +31,7 @@ The API of the library is also pretty simple. Just call createBlobSas and use th
 
 For example, Imagine you have someBlob.txt file stored in azure storage and you want to give somebody access to view the file for five minutes. You could use the following code snippet:
 
-====
+<!--more-->
 
 ```javascript
 import { createBlobSas } from '@neurocode.io/azure-sas-token'

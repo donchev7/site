@@ -17,7 +17,7 @@ Similar to that logic when you deploy containers to production you want the imag
 
 However, some packages require that you have compilers installed when doing package installs. The way to solve this puzzle prior to docker multi-stage builds was to have two separate Dockerfiles. One for building the binaries and one for running the actual application. With docker multi-stage builds you can now combine the two dockerfiles in one and you will end up with a lean image for production. An example might be useful to show this
 
-====
+<!--more-->
 
 Clone my [GitHub repo](https://github.com/donchev7/docker-multistage) to participate or just look at the code in the repo and read along to better understand the concept.
 
@@ -25,7 +25,7 @@ The repo consists of a fairly simple JAVA app and one test. I'll use Maven for b
 
 Now, let us take a look at the Dockerfile in the repo:
 
-```
+```dockerfile
 FROM maven:3.5-jdk-8 AS builder
 
 WORKDIR /opt/hello_world
@@ -50,13 +50,13 @@ We start by declaring the builder image, in this case, the maven:3.5-jdk-8 image
 
 When we build the image:
 
-```
+```bash
 docker build -t simpleapp .
 ```
 
 we can check the size of the image:
 
-```
+```bash
 docker image ls | grep simpleapp | awk '{ print $8 "         " }'
 83MB
 ```
@@ -70,7 +70,7 @@ If you change the source code in `src/main/java/hello/Greeter.java` from "Hello 
 
 If we change the source code a couple of times and build the image after each change we will get many orphaned (dangling) images. For example, I changed the Greeter.java function three times and build the corresponding image three times. If I list the images on my laptop I get:
 
-```
+```bash
 docker images
 REPOSITORY            TAG               IMAGE ID            CREATED             SIZE
 simpleapp             latest            057e18566a5c        About an hour ago   83MB
@@ -98,7 +98,7 @@ Having worked with docker in many development environments I have encountered ma
 
 Docker provides a --user flag with it's run command. You can switch to a specified UID during container start like so:
 
-```
+```bash
 docker run --rm -i -t --user $( id -u $USER ):$( id -g $USER ) simpleapp /bin/sh
 ```
 
@@ -106,13 +106,13 @@ This approach works 80% of the time but has some drawbacks. The biggest drawback
 
 You will get an error like the following:
 
-```
+```bash
 docker: Error response from daemon: linux spec user: unable to find user uidn6484: no matching entries in passwd file.
 ```
 
 An improved approach would be to mount the /etc/passwd and /etc/group files into your container! Like so:
 
-```
+```bash
 docker run --rm - i -t -v /etc/passwd:/etc/passwd:ro -v /etc/group:/etc/group:ro  --user $( id -u $USER ):$( id -g $USER ) simpleapp /bin/sh
 ```
 

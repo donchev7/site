@@ -30,10 +30,10 @@ Aerospike-tester(v. 3.15.0.1) on a m4.xlarge
 Elasticache-tester(v. 3.2.4) on a cache.m4.xlarge
 
 
-![ycsb](ycsb.png)
+![ycsb](post/2017/ycsb.png)
 
 
-====
+<!--more-->
 
 # YCSB
 

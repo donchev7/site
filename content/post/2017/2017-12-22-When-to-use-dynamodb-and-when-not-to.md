@@ -17,7 +17,7 @@ In this post, I will list a couple of answers to the simple question "Why did yo
 
 Yes, scaling is done behind the scenes by AWS, for every 10GB of data a new Node is added but what people forget is that when you initially provision 30 RCU/WCU and suddenly your data grows and you have 2-3 Nodes the provisioned RCUs/WCUs is a total of all Nodes. Hence if a query throws a **ProvisionedThroughputExceededException** you can't provision more throughput on a Node by Node basis you will have to overprovision your throughput or re-design your data model. Also with the newly introduced auto-scaling feature for provisioned throughput, care must be taken to not exceed budget limits because of a bad initial data model design.
 
-====
+<!--more-->
 
 
 > It's so simple getting started with
@@ -37,5 +37,5 @@ My takeaway for DynamoDB is to use it in applications with high write load where
 
 As for a final thought checkout this funny but accurate decision tree made by Forrest Brazeal
 
-![dynamoDBdecision](dynamoDBForrestBrazeal.png)
+![dynamoDBdecision](post/2017/dynamoDBForrestBrazeal.png)
 

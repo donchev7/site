@@ -20,18 +20,18 @@ In re:Invent 2017 AWS announced AWS Fargate among many other new services. AWS d
 
 I have experience with ECS and Kubernetes and the underlying machines haven't posed a problem for me to manage. In Kubernetes draining a node for maintenance or update is achieved via the CLI
 
-```
+```bash
 kubectl drain <node name>
 ```
 
-====
+<!--more-->
 
 
 This command will tell the kubernetes cluster to mark the node as unschedulable and prevent new pods from arriving. It will also evict running pods and move them to other nodes (except those are [static pods](https://kubernetes.io/docs/tasks/administer-cluster/static-pod/) which I never use).
 
 After the node is drained you could perform OS upgrades or security patch installations and return the node to the cluster via 
 
-```
+```bash
 kubectl uncordon <node name>
 ```
 

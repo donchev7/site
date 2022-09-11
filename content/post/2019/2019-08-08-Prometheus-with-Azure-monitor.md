@@ -10,7 +10,7 @@ tags:
 
 I have been using Azure AKS for quite some time now and haven't had many problems with it. I run my own observability stack (Prometheus + Grafana) and logging stack (EFK) on AKS myself. I recently noticed on Azures [blog](https://azure.microsoft.com/en-us/blog/azure-monitor-for-containers-with-prometheus-now-in-preview/) that I can ditch my Prometheus from inside kubernetes and have azure take care of scraping and storing the application metrics. If you have been using Prometheus with AKS than there is not much that will change as a developer. If you, however, have been using Prometheus for DevOps related work and are quite good at writing PromQL than embrace yourself for KQL (Kusto Query Language)
 
-```
+```sql
 <Queries>
 InsightsMetrics
 | where Name == "user_management"
@@ -21,7 +21,7 @@ InsightsMetrics
 | project request_status, Num, TimeGenerated | render timechart
 ```
 
-====
+<!--more-->
 
 <br />
 
@@ -32,14 +32,14 @@ Note that this feature is still in preview and might change in the future. For a
 
 In order to try this feature, you'll need an AKS cluster with OMS agent running version **ciprod07092019**   or above. Check if you have OMS agent in your AKS cluster and the version by running the following command
 
-```
+```bash
 k -n kube-system get ds omsagent -o yaml | grep image:
 image: mcr.microsoft.com/azuremonitor/containerinsights/ciprod:ciprod07092019
 ```
 
 if you get an output with something similar to the above you are good to go. If not, you will need to enable OMS agent on your AKS cluster:
 
-```
+```bash
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
@@ -50,7 +50,7 @@ I will write a follow-up post where I go into details of how to setup a producti
 
 Now that we have verified that the OMS agent is running we can apply the configuration and have the OMS agent scrape our services:
 
-```
+```bash
 kubectl apply -f https://raw.githubusercontent.com/microsoft/OMS-docker/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml
 ```
 

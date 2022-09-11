@@ -22,7 +22,7 @@ Let me start by stating what DevOps is **not**
   
     This is probably, in my opinion, the biggest misconception. Companies seem to focus eagerly on people to come in and help with automation. Although I agree that the biggest part of DevOps time should go into enabling Automation (CI/CD, IaC, DR...etc) but the work shouldn't end there. DevOps requires cultural norms and an architecture that allows for the shared goals to be achieved throughout the IT value stream. This goes far beyond automation.
 
-====
+<!--more-->
 
 
 With this out of the way, let's start looking at what DevOps is and how to implement it.

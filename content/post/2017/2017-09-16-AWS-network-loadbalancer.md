@@ -1,7 +1,7 @@
 ---
 date: 2017-10-16
-title: 'Building and Shipping Docker images'
-slug: building-and-shipping-docker-images
+title: 'AWS network loadbalancer'
+slug: aws-network-loadbalancer
 toc: false
 tags:
   - AWS
@@ -13,9 +13,9 @@ The other day I received an email from AWS with their latest announcements. I we
 
 A year ago I worked on a project where the requirements were to capture NetFlow traffic and query CPEs (Customer Premises Equipment) of their status through the SNMP protocol. The SNMP part wasn't that big of a challenge but the NetFlow was more of a challenge. Having 10.000 CPE each with at least 10 interfaces bombing your backend is quite a challenge. One of the requirements was data integrity since the data would be used in a commercial manner. Our initial design consisted of having 5x EC2 instances with NetFlow parsers that would parse and forward (produce) the data to an Apache Kafka cluster. The following picture shows a simplified design
 
-![NLP](NetflowOldAWScloudDesign.png)
+![NLP](post/2017/NetflowOldAWScloudDesign.png)
 
-====
+<!--more-->
 
 The problem with this design is that you have to guess the number of EC2 instances needed to parse and forward the NetFlow data. The reason we couldn't use an AutoScalingGroup (ASG) was that in the router itself NetFlow is configured with an IP, for example in Cisco
 

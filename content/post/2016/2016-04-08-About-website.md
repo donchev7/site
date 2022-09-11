@@ -18,7 +18,7 @@ Let me tell you the tech specifics around this website:
  - [SQLAlchemy](https://www.sqlalchemy.org/) ORM wrapper
  - [AWS](https://aws.amazon.com/) cloud
 
-====
+<!--more-->
 
 The site has its own CI/CD tool chain build on top of Docker and Jenkins but I am thinking of moving everything to AWS lambda. I will make a couple of posts on how to architecture this and how I am planning to use AWS lambda.
 
@@ -28,9 +28,15 @@ In the tech industry, everything moves at the speed of light and I understand th
 
 <br />
 
-##### UPDATE 2021-03-17
+#### UPDATE 2021-03-17
 
 <br />
 
 Moved to a static webpage with gatsby hosted on firebase. More info [here](https://donchev.is/post/switching-from-flask-to-gatsby)
 
+
+#### UPDATE 2022-09-11
+
+<br />
+
+Moved from gatsby to hugo. More info [here](https://donchev.is/post/switching-from-gatsby-to-hugo)

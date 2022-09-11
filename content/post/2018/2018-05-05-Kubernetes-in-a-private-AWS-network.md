@@ -19,7 +19,7 @@ I have been working on setting up a kubernetes cluster on AWS. Usually, the setu
 
 Obviously, both options are time-consuming. What if there is another way? The semi-automated way. Actually, the creators of kubernetes thought about the case where flexibility and customizability are needed. That's why they gave us [kubeadm](https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/) currently my go-to tool for provisioning and managing kubernetes clusters. I call it the semi-automated way because I have to ssh into the master / nodes and issue kubeadm commands and write some config files but with a little bash scripting and terraform knowledge it's rather easy to automate everything.
 
-====
+<!--more-->
 
 
 I already wrote the automation for you and you can get started by cloning my [repo](https://github.com/donchev7/kubernetes-private-aws). I'll explain briefly in this post how you can use the code.

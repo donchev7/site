@@ -11,9 +11,8 @@ I have been really busy these days with kubernetes. Not only managing it but als
 
 I was reading this [document](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs) the other day and noticed the paragraph:
 
-```
 Begin streaming the logs from all containers in pods defined by label app=nginx
-
+```bash
 kubectl logs -f -l app=nginx --all-containers=true
 ```
 
@@ -21,20 +20,20 @@ I am not sure when this feature was added but I wanted to try it out and see if 
 
 I have a microservice called user-information it is of kind deployment and has the replica count set to 3. I want to stream all pod logs of this service so I tried:
 
-```
+```bash
 kubectl logs -f --namespace user-information -l app=user-information
 ```
 
 and see there all logs from all pods displayed in my console! Nice. No more external tools, just plain kubectl  and grep
 
-====
+<!--more-->
 
 ### Bonus
 
 If your services are structured and all of them have labels (which they should) you can further simplify the above command by adding a function to your ~/.functions file. Open the ~/.functionsfile with your preferred editor and paste the following block inside it:
 
 
-```
+```bash
 logs() {
   kubectl logs -f -n $1 -l app=$1 --max-log-requests 5 --all-containers=true --timestamps=true
 }
@@ -42,7 +41,7 @@ logs() {
 
 in a new terminal I can then simply view the logs with:
 
-```
+```bash
 logs user-information
 ```
 

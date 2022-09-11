@@ -23,7 +23,7 @@ No, I dont have seperate projects for dev / prod in firebase. I just use their r
 
 Here is how:
 
-```
+```bash
 firebase --project donchev-is hosting:channel:deploy $(uuidgen) --expires 1h
 
 
@@ -38,10 +38,10 @@ Now I can view my changes on the newly created channel URL
 
 I can even run UI tests on that link if I am too lazy doing the testing myself, here is how I do it:
 
-====
+<!--more-->
 
 
-```
+```bash
 "HEADLESS=false WEBSITE=https://donchev-is--a5894fa1-1982-49ce-9513-e3135fd2e866-nw2h141t.web.app yarn test:e2e",
 
 ```

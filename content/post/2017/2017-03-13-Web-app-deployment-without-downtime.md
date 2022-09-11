@@ -9,9 +9,9 @@ tags:
 
 Hi there today I'll show you how I deploy my site to production without incurring downtime. My site isn't big and is deployed on a single server where I have NGINX, HAproxy and redis running. Here a diagram that shows the setup
 
-![diagram](diagram.jpg)
+![diagram](post/2017/diagram.jpg)
 
-====
+<!--more-->
 
 
 All services run in separate Docker containers. Why? Unless you have been living on Mars the past years you know why containers are awesome if not go on and read my post on docker containers.
@@ -52,7 +52,7 @@ docker-compose up -d
 That of course introduces service downtime to your website because with the  docker-compose up command docker recreates your container from the new image and in the process takes your container down for a few seconds.
 
 
-# Now lets see how to manage this without downtime
+## Now lets see how to manage this without downtime
 
 Open app.py and make a change to the function route
 
@@ -95,7 +95,7 @@ docker stop webappsample_website_1
 Now HAproxy gets notified that it is only linked to one webapp container and thus only routes traffic to your newer version of webapp.
 
 
-# How does this work behind the curtains?
+## How does this work behind the curtains?
 
 The HAproxy docker image is configured to automatically configure HAproxy depending on the linked containers it has. The solution also works on docker swarm and docker cloud. You can have a look at the source code [here](https://github.com/docker/dockercloud-haproxy/tree/master/haproxy).
 

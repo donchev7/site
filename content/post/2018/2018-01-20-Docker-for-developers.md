@@ -14,9 +14,9 @@ Usually, docker is utilized for CI (building / testing / QA..etc) but I think th
 For optimum results, the developer has to know some useful docker commands. In this post, I intend to go over some of the good to know docker commands that I have found myself using on a regular basis while using docker as my development environment.
 
 
-![docker_for_devs](dockerwareenv.png)
+![docker_for_devs](post/2018/dockerwareenv.png)
 
-====
+<!--more-->
 
 # Spawning a shell inside a container
 
@@ -28,13 +28,13 @@ docker-compose exec db /bin/bash
 
 this works only if the container **db** is running. To view running containers, do
 
-```
+```bash
 docker container ls
 ```
 
 if you have an image you pulled from the docker hub and want to take a look at the filesystem of this image, you can
 
-```
+```bash
 docker run --rm -i -t --name db postgres:10 /bin/bash
 ```
 
@@ -46,7 +46,7 @@ docker run --rm -i -t --name db postgres:10 /bin/bash
 When you run the above command in your shell you will notice that after pulling the image docker starts to execute a bunch of different commands and only in the end of it all you'll get a bash shell. The reason for this behavior is because the image (postgres:10) was built with an entrypoint script. The entrypoint script allows the creators of the postgres image to configure a container to run as an executable. But what if you don't want this behavior, what if you just want to look at the files inside the image and the configuration of postgres? Don't worry you can overwrite this behavior:
 
 
-```
+```bash
 docker run --rm -i -t --name db --entrypoint /bin/bash postgres:10
 ```
 
@@ -57,7 +57,7 @@ the **--entrypoint**  argument in the docker run command overwrites the entrypoi
 
 There might be some files in your running docker container that you might want to keep. For example, you might decide to keep the **postgresql.conf** file on your laptop for later reference maybe? Executing a shell inside the postgres container everytime you want to look/change the postgresql.conf isn't fun so why not just copy it to your laptop?
 
-```
+```bash
 docker cp db:/var/lib/postgresql/data/postgresql.conf .
 ```
 
@@ -68,7 +68,7 @@ This command will copy the config file from the running container to your curren
 
 In a previous [post](https://donchev.is/post/building-and-shipping-docker-images) of mine. I mentioned that when I build docker images I sometimes like to start from the shell and issue the build commands manually and afterward save the running container to an image via [docker commit](https://docs.docker.com/engine/reference/commandline/commit/). What I have been doing recently is slightly different but still the same principle. I start with a Dockerfile that I build and if the build fails I will drop into the container to view the filesystem and correct the error and commit the container to an image. An example might be suitable here, imagine the following Dockerfile:
 
-```
+```dockerfile
 FROM python:alpine3.7
 
 RUN pip install psycopg2
@@ -77,7 +77,7 @@ CMD ["python"]
 
 building this Dockerfile will fail
 
-```
+```docker
 Sending build context to Docker daemon  2.048kB
 Step 1/3 : FROM python:alpine3.7
  ---> 4b00a94b6f26
@@ -108,13 +108,13 @@ The command '/bin/sh -c pip install psycopg2' returned a non-zero code: 1
 
 The error is because pg_config wasn't found. We can have a look at the filesystem of this build with:
 
-```
+```bash
 docker run --rm -i -t 4b00a94b6f26 /bin/sh
 ```
 
 4b00a94b6f26 is the filesystem layer just before the error occured. By opening a shell in this layer we can examine the filesystem and look for clues if pg_config is installed:
 
-```
+```bash
 ~$ find / -name pg_config
 ~$ 
 ~$ apk add postgresql-dev 
@@ -137,7 +137,7 @@ Executing busybox-1.27.2-r7.trigger OK: 56 MiB in 44 packages
 
 Docker uses caches when building / rebuilding images. You should utilize the caching mechanism as much as possible. Instead of doing:
 
-```
+```dockerfile
 FROM python:alpine3.7
 COPY . .
 RUN pip install -r requirements.txt
@@ -145,7 +145,7 @@ RUN pip install -r requirements.txt
 
 DO THIS:
 
-```
+```dockerfile
 FROM python:alpine3.7
 COPY requirements.txt .
 RUN pip install -r requirements.txt

@@ -1,5 +1,5 @@
 ---
-date: 2016-01-15
+date: 2016-05-15
 title: 'State of the Cloud'
 slug: state-of-the-cloud
 toc: false
@@ -26,7 +26,7 @@ With PAAS developers don't need to worry about the operating system anymore and 
 
 FAAS (Function As A Service) or serverless is the next big thing in my opinion. With PAAS even though we don't have to take care of the operating system we still need to provision one and run it 24/7 and thus pay for the underlying resources. With FAAS we don't need to provision anything and don't need to pay anything if the service (function) isn't executing.
 
-![cloud_evolution](CloudEvo.jpg)
+![cloud_evolution](post/2017/CloudEvo.jpg)
 
 
 I can already see startups architecting their software to fit these new concepts and also older companies starting to migrate to serverless architectures. One predecessor to be able to adopt serverless solutions is to build decoupled applications and to have developers think in events/triggers as opposed to the classical OOP design.

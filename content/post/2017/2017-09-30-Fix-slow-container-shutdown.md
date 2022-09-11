@@ -12,7 +12,7 @@ Today I was working in a dev environment where everything was done within contai
 There are two ways of running your containers. With CMD or ENTRYPOINT or a combination of both. For example
 
 
-```
+```dockerfile
 FROM alpine:3.6
 
 CMD ["ping"]
@@ -20,9 +20,9 @@ CMD ["ping"]
 
 and
 
-====
+<!--more-->
 
-```
+```dockerfile
 FROM alpine:3.6
 ENTRYPOINT ["ping"]
 CMD ["8.8.8.8"]
@@ -39,11 +39,11 @@ In both cases running the containers, the ping application is run as PID 1 and c
 
 Lets have a look at the container
 
-```
+```bash
 docker run --rm -it --name pinger donchev7/alpine-pinger
 ```
 
-```
+```bash
 PING 8.8.8.8 (8.8.8.8): 56 data bytes
 64 bytes from 8.8.8.8: seq=0 ttl=59 time=10.643 ms
 64 bytes from 8.8.8.8: seq=1 ttl=59 time=9.861 ms
@@ -54,13 +54,13 @@ The *donchev7/alpine-pinger* image is only 3.97MB, you should have no problem ru
 
 While the container is running issue this command in another terminal window
 
-```
+```basb
 docker exec pinger ps aux
 ```
 
 you should see the following
 
-```
+```bash
 docker exec pinger ps aux                               
 PID   USER     TIME   COMMAND
 1     root     0:00   ping 8.8.8.8
@@ -76,7 +76,7 @@ When we issue a docker stop command the docker daemon sends a SIGTERM signal to 
 
 While still having your pinger container running run the following
 
-```
+```bash
 time docker stop pinger
 ```
 
@@ -90,13 +90,13 @@ On my computer it took 10,577 seconds to stop the container. That's crazy, conta
 
 Let's test the second solution out. Run the pinger again this time passing the --init flag like so
 
-```
+```bash
 docker run --rm -it --name pinger --init donchev7/alpine-pinger
 ```
 
 and then
 
-```
+```bash
 time docker stop pinger
 ```
 

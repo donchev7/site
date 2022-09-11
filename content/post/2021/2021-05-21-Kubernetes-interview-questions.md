@@ -3,6 +3,7 @@ date: 2021-05-21
 title: 'Kubernetes interview questions'
 slug: kubernetes-interview-questions
 toc: false
+# image: post/2021/kubernetes-horizontal-color.png
 tags:
   - Kubernetes
   - Docker
