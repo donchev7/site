@@ -1,8 +1,8 @@
 ---
 date: 2017-05-23
-dateName: '23 May 2017'
 title: 'Implementing DevOps'
 slug: implementing-devops
+toc: false
 tags:
   - DevOps
 ---

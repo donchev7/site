@@ -1,8 +1,8 @@
 ---
 date: 2017-12-12
-dateName: '12 December 2017'
 title: 'Aerospike vs Redis vs Tarantool'
 slug: aerospike-vs-redis-vs-tarantool
+toc: false
 tags:
   - Cloud
   - Docker

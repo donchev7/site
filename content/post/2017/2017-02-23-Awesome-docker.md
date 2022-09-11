@@ -1,8 +1,8 @@
 ---
 date: 2017-02-23
-dateName: '23 February 2017'
 title: 'Awesome Docker'
 slug: awesome-docker
+toc: false
 tags:
   - Docker
 ---

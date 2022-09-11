@@ -1,8 +1,8 @@
 ---
 date: 2017-05-06
-dateName: '06 May 2017'
 title: 'Redis, Apache Kafka & RabbitMQ - When to use what'
 slug: redis-kafka-rabbitmq
+toc: false
 tags:
   - Open source
 ---

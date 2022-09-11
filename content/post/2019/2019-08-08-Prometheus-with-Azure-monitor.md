@@ -1,8 +1,8 @@
 ---
 date: 2019-08-08
-dateName: '08 August 2019'
 title: 'Prometheus with Azure Monitor'
 slug: prometheus-with-azure-monitor-for-containers
+toc: false
 tags:
   - Cloud
   - Azure

@@ -1,8 +1,8 @@
 ---
 date: 2021-05-21
-dateName: '21 May 2021'
 title: 'Kubernetes interview questions'
 slug: kubernetes-interview-questions
+toc: false
 tags:
   - Kubernetes
   - Docker

@@ -1,8 +1,8 @@
 ---
 date: 2019-06-24
-dateName: '24 June 2019'
 title: 'Streaming kubernetes logs from multiple replicas'
 slug: kubernetes-logs
+toc: false
 tags:
   - Kubernetes
 ---

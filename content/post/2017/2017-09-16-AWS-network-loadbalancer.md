@@ -1,8 +1,8 @@
 ---
 date: 2017-10-16
-dateName: '16 September 2017'
 title: 'Building and Shipping Docker images'
 slug: building-and-shipping-docker-images
+toc: false
 tags:
   - AWS
   - Cloud

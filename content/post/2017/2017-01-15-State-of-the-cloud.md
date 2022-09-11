@@ -1,8 +1,8 @@
 ---
 date: 2016-01-15
-dateName: '15 January 2017'
 title: 'State of the Cloud'
 slug: state-of-the-cloud
+toc: false
 tags:
   - AWS
   - Cloud

@@ -1,8 +1,8 @@
 ---
 date: 2018-05-05
-dateName: '05 May 2018'
 title: 'Kubernetes in a private AWS network'
 slug: kubernetes-in-a-private-network
+toc: false
 tags:
   - AWS
   - Kubernetes

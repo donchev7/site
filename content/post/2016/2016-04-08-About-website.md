@@ -1,8 +1,8 @@
 ---
 date: 2016-04-08
-dateName: '08 April 2016'
 title: 'About this website'
 slug: about-this-site
+toc: false
 tags:
   - Self
 ---

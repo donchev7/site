@@ -1,8 +1,8 @@
 ---
 date: 2017-03-13
-dateName: '13 March 2017'
 title: 'Web app deployment without downtime'
 slug: webapp-deployment-without-downtime
+toc: false
 tags:
   - Docker
 ---

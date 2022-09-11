@@ -1,8 +1,8 @@
 ---
 date: 2017-12-22
-dateName: '22 December 2017'
 title: 'When to use DynamoDB and when not to'
 slug: when-to-use-dynamodb-and-when-not-to
+toc: false
 tags:
   - AWS
   - Big Data

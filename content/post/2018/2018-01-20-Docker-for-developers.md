@@ -1,8 +1,8 @@
 ---
 date: 2018-01-20
-dateName: '20 January 2018'
 title: 'Docker for developers'
 slug: docker-for-developers
+toc: false
 tags:
   - Docker
 ---

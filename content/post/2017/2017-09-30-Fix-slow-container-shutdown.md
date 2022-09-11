@@ -1,8 +1,8 @@
 ---
 date: 2017-10-30
-dateName: '30 September 2017'
 title: 'Fix slow container shutdown'
 slug: docker-containers-slow-shutdown
+toc: false
 tags:
   - Docker
 ---

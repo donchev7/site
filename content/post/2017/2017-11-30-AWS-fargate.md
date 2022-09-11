@@ -1,8 +1,8 @@
 ---
 date: 2017-11-30
-dateName: '30 November 2017'
 title: 'AWS Fargate'
 slug: aws-fargate
+toc: false
 tags:
   - AWS
   - Cloud

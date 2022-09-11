@@ -1,8 +1,8 @@
 ---
 date: 2020-05-23
-dateName: '06 November 2020'
 title: 'Azure SAS tokens on cloudflare workers'
 slug: azure-sas-token-on-cloudflare
+toc: false
 tags:
   - Cloud
   - Azure

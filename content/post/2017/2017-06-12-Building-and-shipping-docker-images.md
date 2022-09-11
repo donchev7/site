@@ -1,8 +1,8 @@
 ---
 date: 2017-06-12
-dateName: '12 June 2017'
 title: 'Building and Shipping Docker images'
 slug: building-and-shipping-docker-images
+toc: false
 tags:
   - Docker
   - DevOps
