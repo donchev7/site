@@ -1,13 +1,9 @@
 ---
-title: About
-description: Hugo, the world's fastest framework for building websites
-date: '2019-02-28'
-aliases:
-  - about-us
-  - about-hugo
-  - contact
-license: CC BY-NC-ND
-lastmod: '2020-10-09'
+date: 2016-04-07
+title: 'About'
+toc: false
+tags:
+  - Self
 menu:
     main: 
         weight: -90
@@ -15,20 +11,13 @@ menu:
             icon: user
 ---
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+Hi, my name is Bobby Blagovest Donchev. I live in the Frankfurt metropolitan area, Germany. Originally I am from Bulgaria but have spent the majority of my adulthood in Iceland.
+I came to Germany to finish my studies (M.Sc. Engineering) and have since decided to stay a little longer.
 
-Hugo makes use of a variety of open source projects including:
+<!--more-->
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+From a young age I had an urge to tinker with computers and networks and after I found out I could make a living by doing what I love, I was instantly hooked. The software behind this blog is written by me. I tried WordPress and blogger but wanted something fast and lean and thought I might as well do it myself. In the near future I will write a couple of posts about how I programmed and architectured the software.
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+I will be mainly writing about cloud services, open source software and from time to time programming related subjects.
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
-
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
-
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+Thanks for reading my site, I hope you find something interesting or useful.
