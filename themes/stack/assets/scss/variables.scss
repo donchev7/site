@@ -149,13 +149,13 @@ $defaultTagColors: #fff, #fff, #fff, #fff, #fff;
 [data-scheme="light"] {
     --pre-text-color: #272822;
     --pre-background-color: #fafafa;
-    @import "partials/highlight/light.scss";
+    // @import "partials/highlight/light.scss";
 }
 
 [data-scheme="dark"] {
     --pre-text-color: #f8f8f2;
     --pre-background-color: #272822;
-    @import "partials/highlight/dark.scss";
+    // @import "partials/highlight/dark.scss";
 }
 
 :root {
