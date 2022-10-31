@@ -1,5 +1,6 @@
 ---
 date: 2021-03-17
+image: 'post/2021/gatsby.png'
 title: 'Switching from flask to gatsby'
 slug: switching-from-flask-to-gatsby
 toc: false

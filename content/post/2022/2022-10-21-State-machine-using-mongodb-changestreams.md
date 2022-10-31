@@ -1,5 +1,6 @@
 ---
 date: 2022-10-21
+image: 'post/2022/Mongodb.png'
 title: 'State machine using MongoDB changestreams'
 slug: state-machine-using-mongodb-changestreams
 toc: false

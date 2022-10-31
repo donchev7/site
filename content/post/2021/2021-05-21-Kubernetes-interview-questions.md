@@ -1,5 +1,6 @@
 ---
 date: 2021-05-21
+image: 'post/2021/5.png'
 title: 'Kubernetes interview questions'
 slug: kubernetes-interview-questions
 toc: false
