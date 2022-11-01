@@ -27,18 +27,16 @@ $ dev-tool rds create --prod
 ## Problem
 
 In AWS I have enabled federated AWS access. Developers assume a role and get CLI / Console **read** access to the AWS account.
-
 But what if the developer needs to creat secrets, RDS instances, provision state machines etc...?
 
 Thats where the CLI tool comes in. The CLI tool invokes AWS Lambda functions that creates the resources.
-
 But how do you know who invoked the Lambda function? How do you know if the developer is allowed to create production resources?
 
 ## Solution
 
 In the CLI I presign the get-caller-identity call. The presigned URL is then passed to the Lambda functions. I created a lambda middleware that calls the presigned URL and gets the caller identity. Does authentication and authorization and if everything is OK it passes the user information via the context to the Lambda functions.
 
-The solution is similar to how EKS IAM works. Its actuall a very simple solution. But I could not find any documentation on how to do it. So I thought I would share it.
+The solution is similar to how EKS IAM works. It is actually a very simple solution. But I could not find any documentation on how to do it. So I thought I would share it.
 
 ```go
 package auth
