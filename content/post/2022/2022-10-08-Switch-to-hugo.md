@@ -1,5 +1,6 @@
 ---
 date: 2022-10-08
+image: 'post/2022/Switchingfromgatsbytohugo.png'
 title: 'Switching from gatsby to hugo'
 slug: switching-from-gatsby-to-hugo
 toc: false

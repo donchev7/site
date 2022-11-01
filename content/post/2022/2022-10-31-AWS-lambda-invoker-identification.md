@@ -1,5 +1,6 @@
 ---
 date: 2022-10-31
+image: 'post/2022/aws lambda.png'
 title: 'AWS Lambda invoker identification'
 slug: aws-lambda-invoker-identification
 toc: false
