@@ -1,8 +1,8 @@
 ---
 date: 2022-12-28
 image: 'post/2022/github_app.png'
-title: 'How to authenticate using a GitHub App'
-slug: how-to-authenticate-using-a-github-app
+title: 'How to authenticate a GitHub App using python'
+slug: how-to-authenticate-a-github-app-using-python
 toc: false
 tags:
   - github
@@ -32,7 +32,7 @@ import os
 
 API_SECRET = os.environ["GITHUB_WEBHOOK_SECRET"]
 
-def auth(f):
+def verify(f):
     @functools.wraps(f)
     def wrapper(req, *args, **kwargs):
         logging.info('Verifying request')
@@ -58,7 +58,7 @@ If the signatures match we know that the request is coming from GitHub. If the s
 Note that the decorator was created for Azure Functions, but it can be easily adapted to other frameworks. This is how I use the decorator in my azure function handler:
 
 ```python
-@auth
+@verify
 def main(req: func.HttpRequest) -> func.HttpResponse:
     return handler(req)
 ```
