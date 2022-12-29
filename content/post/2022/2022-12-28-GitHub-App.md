@@ -1,6 +1,6 @@
 ---
 date: 2022-12-28
-# image: 'post/2022/aws lambda.png'
+image: 'post/2022/github_app.png'
 title: 'How to authenticate using a GitHub App'
 slug: how-to-authenticate-using-a-github-app
 toc: false
@@ -10,7 +10,7 @@ tags:
 
 ## Introduction
 
-Recently I was working on moving a bitbucket application (bot) to GitHub. With bitbucket, I can use a personal access token to authenticate with the API. It seemed that this personal access token was valid forever? Which can be a good thing, but also a bad thing. With GitHub you can create an bot account and issue a access token for that account. But this token is only valid for max 1 year. So I was looking for a way to authenticate with a GitHub App. This is a bit more complicated, but it is also more secure.
+Recently I was working on moving a bitbucket bot to GitHub. With bitbucket, I can use a personal access token to authenticate with the API. It seems that this personal access token was valid forever? Which can be a good thing, but also a bad thing. With GitHub you can create a bot account and issue an access token for that account. But this token is only valid for max 1 year. After a brief research I encountered GitHub apps. Which are basically webhooks and bot accoun with granular permissions installed on a GitHub organization. However, getting the authentication right was a bit tricky. In this post I will try to explain how to authenticate with a GitHub app.
 
 ## Webhook secret, private key, JWT and access token
 
@@ -19,7 +19,7 @@ When I first started to look into GitHub apps I must admit that I was a bit conf
 
 ### Webhook secret
 
-I case your app needs to subscribe to events from GitHub you must create a webhook secret. This secret is used to verify that the webhook request is coming from GitHub. This is a good thing, because it prevents other people from sending fake webhook requests to your app. You can create a webhook secret in the GitHub app settings. Lets quickly go over how to verify the webhook request. 
+Whenever a GitHub app needs to subscribe to events from one ore multiple repositores I must create a webhook secret. This secret is used to verify that the webhook request is coming from GitHub. This is a good thing, because it prevents other people from sending fake webhook requests to my app. I can create a webhook secret in the GitHub app settings. Lets quickly go over how to verify the webhook request.
 
 I created a simple decorator that I can use to verify the webhook request:
 
@@ -36,13 +36,13 @@ def auth(f):
     @functools.wraps(f)
     def wrapper(req, *args, **kwargs):
         logging.info('Verifying request')
-        github_signature = req.headers.get('X-Hub-Signature-256')
-        if not github_signature:
+        got = req.headers.get('X-Hub-Signature-256')
+        if not got:
             raise VerifyError('No signature found')
 
         payload = req.get_body()
-        signature = 'sha256=' + hmac.new(bytes(API_SECRET, 'latin-1'), msg = payload, digestmod = hashlib.sha256).hexdigest()
-        isCorrect = hmac.compare_digest(github_signature, signature)
+        want = 'sha256=' + hmac.new(bytes(API_SECRET, 'latin-1'), msg = payload, digestmod = hashlib.sha256).hexdigest()
+        isCorrect = hmac.compare_digest(got, want)
         if not isCorrect:
             raise VerifyError()
         logging.info('Request verified')
@@ -111,10 +111,10 @@ class Auth(object):
         return resp.json()['token']
 ```
 
-Note that you can only create a JWT that is valid for 10 minutes. Also, because of clock skew, you should create the JWT 1 minute ago. This way you can be sure that the JWT is valid when you exchange it for an access token.
+Note that we can only create a JWT that is valid for 10 minutes. Also, because of clock skew, I created the JWT 1 minute ago. This way I can be sure that the JWT is valid when I exchange it for an access token.
 
 
-The private key that you pass to the Auth class can come from the environment:
+The private key that I pass to the Auth class can come from the environment:
 
 ```python
 
@@ -128,7 +128,7 @@ access_token = auth.get_accesstoken()
 
 ```
 
-I have stored my private key in KeyVault and load it into the environment variable `GITHUB_PRIVATE_KEY`. Note that if you store your private key in a `.env` file or KeyVault you need to add newline charse .e.g `\n` in order for it to work:
+I have stored my private key in KeyVault and load it into the environment variable `GITHUB_PRIVATE_KEY`. Note that if you store your private key in a `.env` file or KeyVault you need to add newline chars .e.g `\n` in order for it to work:
 
 ```.env
 GITHUB_APP_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
