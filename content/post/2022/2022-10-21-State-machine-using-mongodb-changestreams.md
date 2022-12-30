@@ -3,7 +3,7 @@ date: 2022-10-21
 image: 'post/2022/Mongodb.png'
 title: 'State machine using MongoDB changestreams'
 slug: state-machine-using-mongodb-changestreams
-toc: false
+toc: true
 tags:
   - Cloud
   - MongoDB
@@ -13,17 +13,17 @@ tags:
 
 I worked on a project where we needed to implement a process that spans multiple days. The process is dependent on the internet connectivity of our customers IoT device.
 
-Usually I would go for something like [temperol.io](https://temporal.io/), Azure Durable Entites or AWS Step Functions. But incorperating new infrastructure is always a challenge and the project wanted to keep the infrastructure as simple as possible. Meaning re-using existing infrastructure.
+Usually I would go for something like [temporal.io](https://temporal.io/), Azure Durable Entities or AWS Step Functions. But incorporating new infrastructure is always a challenge and the project wanted to keep the infrastructure as simple as possible. Meaning re-using existing infrastructure.
 
-That narrowed the options down to kubernetes and MongoDB =)
+That narrowed the options down to Kubernetes and MongoDB =)
 
-## Bulding a state machine with MongoDB and kubernetes
+## Building a state machine with MongoDB and Kubernetes
 
-In this post I will show how to build a state machine using [MongoDB changestreams](https://docs.mongodb.com/manual/changeStreams/) and kubernetes. The state machine will be used to track the progress of a process that spans multiple days. 
+In this post I will show how to build a state machine using [MongoDB changestreams](https://docs.mongodb.com/manual/changeStreams/) and Kubernetes. The state machine will be used to track the progress of a process that spans multiple days. 
 
 **Each state** is represented as a column in a single document. The document is updated by the state machine when the process moves to the next state.
 
-**Each state** in the state machine is implemented as a kubernetes **statefulset**. Why statefulset? Because we need to store a [resume token](https://www.mongodb.com/docs/manual/changeStreams/#std-label-change-stream-resume-token) in a durable place. The resume token is used to resume the changestream when the statefulset is restarted (update or crash).
+**Each state** in the state machine is implemented as a Kubernetes **statefulset**. Why statefulset? Because we need to store a [resume token](https://www.mongodb.com/docs/manual/changeStreams/#std-label-change-stream-resume-token) in a durable place. The resume token is used to resume the changestream when the statefulset is restarted (update or crash).
 
 ## Process manager
 
@@ -152,10 +152,10 @@ const started = new Process(filter, `started.json`, work);
 started.run();
 ```
 
-I call this the "started" state and will be deployed as it own statefulset in kubernetes. The statefulset will be configured to restart on failure.
+I call this the "started" state and will be deployed as it own statefulset in Kubernetes. The statefulset will be configured to restart on failure.
 
 
-With this setup I can add as many states as I want. Each state will be deployed as a statefulset in kubernetes.
+With this setup I can add as many states as I want. Each state will be deployed as a statefulset in Kubernetes.
 For my use case I needed 5 states. Each state did one thing and then moved process to the next state.
 
 

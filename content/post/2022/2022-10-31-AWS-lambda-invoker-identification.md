@@ -3,7 +3,7 @@ date: 2022-10-31
 image: 'post/2022/aws lambda.png'
 title: 'AWS Lambda invoker identification'
 slug: aws-lambda-invoker-identification
-toc: false
+toc: true
 tags:
   - Cloud
   - AWS
@@ -13,7 +13,7 @@ tags:
 
 I am building a CLI tool that will invoke AWS Lambda functions. The tool will be used by developers to create AWS resources. You may ask why not give the developers access to AWS CLI? 
 
-Even if I did give them AWS CLI access I cannot gurantee that the developers will adhere to the naming conventions and tagging conventions.
+Even if I did give them AWS CLI access I cannot guarantee that the developers will adhere to the naming conventions and tagging conventions.
 
 Another added benefit of creating a CLI tool is that developers will get the resources pre-configured with the "right" settings. E.g.
 
@@ -28,14 +28,14 @@ $ dev-tool rds create --prod
 ## Problem
 
 In AWS I have enabled federated AWS access. Developers assume a role and get CLI / Console **read** access to the AWS account.
-But what if the developer needs to creat secrets, RDS instances, provision state machines etc...?
+But what if the developer needs to create secrets, RDS instances, provision state machines etc...?
 
 Thats where the CLI tool comes in. The CLI tool invokes AWS Lambda functions that creates the resources.
 But how do you know who invoked the Lambda function? How do you know if the developer is allowed to create production resources?
 
 ## Solution
 
-In the CLI I presign the get-caller-identity call. The presigned URL is then passed to the Lambda functions. I created a lambda middleware that calls the presigned URL and gets the caller identity. Does authentication and authorization and if everything is OK it passes the user information via the context to the Lambda functions.
+In the CLI I pre-sign the get-caller-identity call. The presigned URL is then passed to the Lambda functions. I created a lambda middleware that calls the presigned URL and gets the caller identity. Does authentication and authorization and if everything is OK it passes the user information via the context to the Lambda functions.
 
 The solution is similar to how EKS IAM works. It is actually a very simple solution. But I could not find any documentation on how to do it. So I thought I would share it.
 

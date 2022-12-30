@@ -3,14 +3,14 @@ date: 2022-12-28
 image: 'post/2022/github_app.png'
 title: 'How to authenticate a GitHub App using python'
 slug: how-to-authenticate-a-github-app-using-python
-toc: false
+toc: true
 tags:
   - github
 ---
 
 ## Introduction
 
-Recently I was working on moving a bitbucket bot to GitHub. With bitbucket, I can use a personal access token to authenticate with the API. It seems that this personal access token was valid forever? Which can be a good thing, but also a bad thing. With GitHub you can create a bot account and issue an access token for that account. But this token is only valid for max 1 year. After a brief research I encountered GitHub apps. Which are basically webhooks and bot accoun with granular permissions installed on a GitHub organization. However, getting the authentication right was a bit tricky. In this post I will try to explain how to authenticate with a GitHub app.
+Recently I was working on moving a Bitbucket bot to GitHub. With Bitbucket, I can use a personal access token to authenticate with the API. It seems that this personal access token was valid forever? Which can be a good thing, but also a bad thing. With GitHub you can create a bot account and issue an access token for that account. But this token is only valid for max 1 year. After a brief research I encountered GitHub apps. Which are basically webhooks and bot account with granular permissions installed on a GitHub organization. However, getting the authentication right was a bit tricky. In this post I will try to explain how to authenticate with a GitHub app.
 
 ## Webhook secret, private key, JWT and access token
 
@@ -19,7 +19,7 @@ When I first started to look into GitHub apps I must admit that I was a bit conf
 
 ### Webhook secret
 
-Whenever a GitHub app needs to subscribe to events from one ore multiple repositores I must create a webhook secret. This secret is used to verify that the webhook request is coming from GitHub. This is a good thing, because it prevents other people from sending fake webhook requests to my app. I can create a webhook secret in the GitHub app settings. Lets quickly go over how to verify the webhook request.
+Whenever a GitHub app needs to subscribe to events from one ore multiple repositories I must create a webhook secret. This secret is used to verify that the webhook request is coming from GitHub. This is a good thing, because it prevents other people from sending fake webhook requests to my app. I can create a webhook secret in the GitHub app settings. Lets quickly go over how to verify the webhook request.
 
 I created a simple decorator that I can use to verify the webhook request:
 
