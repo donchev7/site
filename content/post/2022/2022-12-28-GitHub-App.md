@@ -75,6 +75,8 @@ First you'll need to install a dependency `cryptography`:
 pip install cryptography
 ```
 
+Now we can create a class that can create a JWT and use that to get an access token:
+
 ```python
 import hmac
 import hashlib
