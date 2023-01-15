@@ -15,7 +15,7 @@ Altough I enjoyed the experience, I found myself updating dependencies and plugi
 
 What I started appreciating about hugo is that it is a **tool**, a single binary that helps you build a static website. It is not a framework or a library or plugin. There is a real benefit in that. It is a tool that you can use to build a website, not a framework that you have to use to build a website. Using Gatsby to achieve the same result as hugo requires also using various software dependencies, so I have to keep not only Gatsby but also all those packages maintained, which resulted in a lot of time spent on the website.
 
-I also have to admit that some of the plugins in the Gatsby ecosystem or of low quality. Updating Gatsby sometimes wasn't possible because a plugin was not compatible with the new version.
+I also have to admit that some of the plugins in the Gatsby ecosystem are of low quality. Updating Gatsby sometimes wasn't possible because a plugin was not compatible with the new version.
 
 With hugo I don't have these problems.
 
@@ -31,4 +31,4 @@ The argument of which to choose boils down to:
 2. no npm dependencies vs fixing npm dependencies 
 
 
-For now I choose the "simpler" solution even though I choose the "easier" solution in the past =-)
+For now I choose the "simpler" solution even though I chose the "easier" solution in the past =-)

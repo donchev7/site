@@ -10,11 +10,9 @@ tags:
 ---
 
 
-In 2016 when I started this site I [wrote about](https://donchev.is/post/about-this-site) the tech stack I choose. 
+In 2016 when I started this site I [wrote about](https://donchev.is/post/about-this-site) the tech stack I chose. 
 
-Yesterday I switched from servers to serverless using [Gatsby](https://www.gatsbyjs.com/) and [firebase hosting](https://firebase.google.com/docs/hosting)
-
-
+Yesterday I switched from servers to serverless using [Gatsby](https://www.gatsbyjs.com/) and [firebase hosting](https://firebase.google.com/docs/hosting).
 Feels good to leave the db and containers behind and have gatsby build a static website whenever I make changes.
 
 With firebase I can review all my changes before promoting them to production (https://donchev.is) How? 
@@ -61,7 +59,7 @@ describe('donchev-is', () => {
   })
 
   it('should work :) ', async () => {
-    // write your e2e tests here with 
+    // write your e2e tests here
   })
 })
 ```
