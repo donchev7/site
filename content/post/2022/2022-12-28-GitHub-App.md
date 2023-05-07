@@ -6,6 +6,7 @@ slug: how-to-authenticate-a-github-app-using-python
 toc: true
 tags:
   - github
+  - python
 ---
 
 ## Introduction

@@ -7,6 +7,7 @@ toc: true
 tags:
   - DevOps
   - Kubernetes
+  - Go
 ---
 
 ## Introduction

@@ -7,6 +7,7 @@ toc: true
 tags:
   - Cloud
   - AWS
+  - Go
 ---
 
 ## Introduction

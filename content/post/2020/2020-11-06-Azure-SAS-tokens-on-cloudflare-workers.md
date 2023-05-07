@@ -6,6 +6,7 @@ toc: false
 tags:
   - Cloud
   - Azure
+  - TypeScript
 ---
 
 I have been playing with cloudflare workers a lot recently. I fell in love with the tech. Although you need a different attitude when using cloudflare workers than when building NodeJS apps. For starters, cloudflare workers run as service workers on the edge, which means you can't use all NodeJS libraries out there.

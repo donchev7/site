@@ -25,11 +25,11 @@
                 object-fit: cover;
 
                 @include respond(md) {
-                    height: 200px;
+                    height: 300px;
                 }
 
                 @include respond(xl) {
-                    height: 250px;
+                    height: 300px;
                 }
             }
         }

@@ -7,6 +7,7 @@ toc: false
 tags:
   - Cloud
   - Firebase
+  - Go
 ---
 
 Last year I [switched](https://donchev.is/post/switching-from-flask-to-gatsby/) to [gatsby](https://www.gatsbyjs.com/) and [firebase hosting](https://firebase.google.com/docs/hosting) from a self made flask app.
