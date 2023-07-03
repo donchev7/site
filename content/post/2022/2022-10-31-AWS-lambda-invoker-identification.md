@@ -12,6 +12,9 @@ tags:
 
 ## Introduction
 
+***Edit 2023-07-03***: *It was brought to my attention that the solution I proposed might benefit from using JSON instead of decoding xml payload.*
+
+
 I am building a CLI tool that will invoke AWS Lambda functions. The tool will be used by developers to create AWS resources. You may ask why not give the developers access to AWS CLI? 
 
 Even if I did give them AWS CLI access I cannot guarantee that the developers will adhere to the naming conventions and tagging conventions.
@@ -45,7 +48,7 @@ package auth
 
 import (
 	"context"
-	"encoding/xml"
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -59,19 +62,14 @@ import (
 
 
 type getCallerIdentityResponse struct {
-	XMLName                 xml.Name `xml:"GetCallerIdentityResponse"`
-	Text                    string   `xml:",chardata"`
-	Xmlns                   string   `xml:"xmlns,attr"`
 	GetCallerIdentityResult struct {
-		Text    string `xml:",chardata"`
-		Arn     string `xml:"Arn"`
-		UserId  string `xml:"UserId"`
-		Account string `xml:"Account"`
-	} `xml:"GetCallerIdentityResult"`
+		Arn     string `json:"Arn,omitempty"`
+		UserId  string `json:"UserId,omitempty"`
+		Account string `json:"Account,omitempty"`
+	} `json:"GetCallerIdentityResult,omitempty"`
 	ResponseMetadata struct {
-		Text      string `xml:",chardata"`
-		RequestId string `xml:"RequestId"`
-	} `xml:"ResponseMetadata"`
+		RequestId string `json:"RequestId,omitempty"`
+	} `json:"ResponseMetadata,omitempty"`
 }
 
 type IAMService struct {
@@ -115,6 +113,9 @@ func (iam IAMService) VerifyIdentity(ctx context.Context, id data.Idenity) (data
 	httpReq := &http.Request{
 		Method: "GET",
 		URL:    url,
+		Header: http.Header{
+			"Accept": []string{"application/json"},
+		},
 	}
 
 	response, err := http.DefaultClient.Do(httpReq)
@@ -128,7 +129,7 @@ func (iam IAMService) VerifyIdentity(ctx context.Context, id data.Idenity) (data
 	}
 
 	resp := getCallerIdentityResponse{}
-	err = xml.Unmarshal(body, &resp)
+	err = json.Unmarshal(body, &resp)
 	if err != nil {
 		return fmt.Errorf("could not unmarshal response body: %w", err)
 	}
