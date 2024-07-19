@@ -1,5 +1,5 @@
 ---
-date: 2024-06-20
+date: 2024-07-20
 image: 'post/2024/sealed-secrets-ui.jpg'
 title: 'Sealed Secrets UI'
 slug: 'sealed-secrets-ui'
