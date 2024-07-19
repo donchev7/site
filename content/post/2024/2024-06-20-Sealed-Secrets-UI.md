@@ -1,6 +1,6 @@
 ---
-date: 2024-05-11
-image: 'post/2023/sealed-secrets-ui.jpg'
+date: 2024-06-20
+image: 'post/2024/sealed-secrets-ui.jpg'
 title: 'Sealed Secrets UI'
 slug: 'sealed-secrets-ui'
 toc: true
@@ -40,6 +40,13 @@ to this
 ![Sealed_Secrets_UI](post/2024/sealed-secrets-ui.png)
 
 
+For a better understanding of how and why check out this cool **video** by **[kubesimplify](https://www.youtube.com/@kubesimplify)**!
+
+{{< youtube E0F4usFauvc >}}
+
+
+He did a great job explaining the Sealed Secrets UI and how it can be used to manage secrets in Kubernetes. At least a lot better than I can do in writing here 😅
+
 
 ## Features and Benefits
 
@@ -75,9 +82,5 @@ metadata:
 ```
 For complete deployment instructions, refer to the deployment section in our [repository](https://github.com/alpheya/sealed-secrets-ui)
 
-
-For a better understanding of how and why check out this cool [video](https://www.youtube.com/watch?v=E0F4usFauvc) by [kubesimplify](https://www.youtube.com/@kubesimplify)!
-
-He did a great job explaining the Sealed Secrets UI and how it can be used to manage secrets in Kubernetes. At least a better job than I did here 😅
 
 As always, if you have any questions or remarks, feel free to ping me on twitter [@bobby_donchev](https://twitter.com/bobby_donchev).
