@@ -10,12 +10,14 @@ tags:
 ---
 
 Kubernetes is a powerful orchestration platform for microservices or for that matter any kind of workloads. Yet, managing sensitive data such as passwords, API keys, and credentials in Kubernetes can be frustrating. 
-Tools such as [Vault](https://www.vaultproject.io/), [Secret Store CSI](https://secrets-store-csi-driver.sigs.k8s.io/), [External Secrets Operator](https://external-secrets.io/latest/). But there is a simpler way to manage secrets in Kubernetes especially if you are already doing GitOps. [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) by Bitnami is one of my favorite tools for managing secrets in Kubernetes and it is a great fit for GitOps workflows. However, managing Sealed Secrets can be a bit challenging especially for beginners. The CLI tool is great but it can be a bit intimidating and don't get me started with updating / merging secrets into existing Sealed Secrets.
+Tools such as [Vault](https://www.vaultproject.io/), [Secret Store CSI](https://secrets-store-csi-driver.sigs.k8s.io/) and [External Secrets Operator](https://external-secrets.io/latest/) exist to for this purpose. But there is a simpler way to manage secrets in Kubernetes especially if you are already doing GitOps. [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) by Bitnami is one of my favorite tools. I can store my secrets **encrypted** in Git and have them **decrypted** in my Kubernetes cluster.
 
-This challenge is precisely what inspired us to create and now open-source the Sealed Secrets UI.
+However, managing Sealed Secrets can be a bit challenging especially for beginners. The CLI tool is great but it can be a bit intimidating and don't get me started with updating / merging secrets into existing Sealed Secrets.
+
+This challenge is precisely what inspired us to create and now open-source the [Sealed Secrets UI](https://github.com/alpheya/sealed-secrets-ui).
 
 ## Why Sealed Secrets UI?
-The Sealed Secrets UI is a web interface that helps creating and updating sealed secrets in Kubernetes. Developed to integrate seamlessly with the Bitnami Sealed Secrets controller, this tool significantly reduces the complexity and potential for errors when managing secrets.
+Sealed Secrets UI helps creating and updating sealed secrets in Kubernetes. Developed to integrate seamlessly with the Bitnami Sealed Secrets controller, this tool significantly reduces the complexity and potential for errors when managing secrets.
 
 You can now go from this:
 
