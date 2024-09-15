@@ -10,7 +10,7 @@ tags:
 ---
 
 Kubernetes is a powerful orchestration platform for microservices or for that matter any kind of workloads. Yet, managing sensitive data such as passwords, API keys, and credentials in Kubernetes can be frustrating. 
-Tools such as [Vault](https://www.vaultproject.io/), [Secret Store CSI](https://secrets-store-csi-driver.sigs.k8s.io/) and [External Secrets Operator](https://external-secrets.io/latest/) exist to for this purpose. But there is a simpler way to manage secrets in Kubernetes especially if you are already doing GitOps. [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) by Bitnami is one of my favorite tools. I can store my secrets **encrypted** in Git and have them **decrypted** in my Kubernetes cluster.
+Tools such as [Vault](https://www.vaultproject.io/), [Secret Store CSI](https://secrets-store-csi-driver.sigs.k8s.io/) and [External Secrets Operator](https://external-secrets.io/latest/) exist for this purpose. But there is a simpler way to manage secrets in Kubernetes especially if you are already doing GitOps. [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) by Bitnami is one of my favorite tools. I can store my secrets **encrypted** in Git and have them **decrypted** in my Kubernetes cluster.
 
 However, managing Sealed Secrets can be a bit challenging especially for beginners. The CLI tool is great but it can be a bit intimidating and don't get me started with updating / merging secrets into existing Sealed Secrets.
 
@@ -47,7 +47,7 @@ For a better understanding of how and why check out this cool **video** by **[ku
 {{< youtube E0F4usFauvc >}}
 
 
-He did a great job explaining the Sealed Secrets UI and how it can be used to manage secrets in Kubernetes. At least a lot better than I can do in writing here 😅
+He did a great job explaining the Sealed Secrets UI and how it can be used to manage secrets in Kubernetes. At least a lot better than I can do here in writing 😅
 
 
 ## Features and Benefits

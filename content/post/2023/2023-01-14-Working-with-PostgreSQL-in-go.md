@@ -228,7 +228,7 @@ func (pg *postgres) GetUser(ctx context.Context, name string) ([]model.User, err
   }
   defer rows.Close()
 
-  return pgx.CollectRows(rows, pgx.RowToStructByName(model.User))
+  return pgx.CollectRows(rows, pgx.RowToStructByName[model.User])
 }
 ```
 
